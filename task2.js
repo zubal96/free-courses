@@ -21,4 +21,4 @@ let getDate = new Date(year,month,day,Timezone);
 let nextDate = new Date(year,12,1,Timezone);
 let msPerDay = 24*60*60*1000;
 let daysLeft = Math.ceil((nextDate.getTime()-getDate.getTime())/msPerDay)-1;
-console.log(daysLeft);
+process.stdout.write(daysLeft);
