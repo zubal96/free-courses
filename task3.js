@@ -5,31 +5,34 @@ let time = new Date(0,0,0,0,0,+t1 + +t2);
 let hours = time.getHours();
 let minutes = time.getMinutes();
 let seconds = time.getSeconds();
+let str ="";
 
 switch(hours){
-	case 0: hoursText=""; hours=""; break; 
-	case 1: hoursText=" час "; break; 
-	case 2:case 3:case 4: hoursText=" часа "; break; 
-	default:hoursText=" часов ";
+	case 0: break; 
+	case 1: str+=hours+" час"; break; 
+	case 2: case 3: case 4: str+=hours+" часа"; break; 
+	default: str+=hours+" часов";
 }
 
-switch(minutes%10){
-	case 0: minutesText=""; minutes=""; break; 
-	case 1: minutesText=" минута "; break; 
-	case 2:case 3:case 4: minutesText=" минуты "; break; 
-	default:minutesText=" минут ";
+if(minutes!==0){
+	if(str!="") str+=" ";
+	switch(minutes%10){
+		case 1: str+=minutes+" минута"; break; 
+		case 2: case 3: case 4: str+= minutes+" минуты"; break; 
+		default: str+=minutes+" минут";
+	}
+	if(minutes >= 11 && minutes <= 14)
+		str+=minutes+" минут";
 }
-if(minutes >= 11 && minutes <= 14)
-	minutesText=" минут ";
 
-switch(seconds%10){
-	case 0: secondsText=""; seconds=""; break; 
-	case 1: secondsText=" секунда "; break; 
-	case 2:case 3:case 4: secondsText=" секунды "; break; 
-	default:secondsText=" секунд ";
+if(seconds!==0){
+	if(str!="") str+=" ";
+	switch(seconds%10){
+		case 1: str+=seconds+" секунда"; break; 
+		case 2: case 3: case 4: str+=seconds+" секунды"; break; 
+		default: str+=seconds+" секунд";
+	}
+	if(seconds >= 11 && seconds <= 14)
+		str+=seconds+" секунд";
 }
-if(seconds >= 11 && seconds <= 14)
-	secondsText=" секунд ";
-
-let str = hours + hoursText +minutes + minutesText + seconds + secondsText;
 console.log(str);
