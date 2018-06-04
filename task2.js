@@ -2,7 +2,7 @@
 let day = process.argv[2];
 let month;
 switch(process.argv[3].toLowerCase()){
-	case 'января': month = 12; break; 
+	case 'января': month = 0; break; 
 	case 'февраля': month = 1; break; 
 	case 'марта': month = 2; break; 
 	case 'апреля': month = 3; break; 
